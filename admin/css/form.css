@@ -40,6 +40,18 @@
 	cursor: pointer; 
 	display: inline-block;
 	font-size: 20px;
+    margin: 5px;
+}
+
+.warnButton{
+    background-color: #ffc700;
+    padding: 10px 32px;
+    color: black;
+    border:none;
+    cursor: pointer; 
+    display: inline-block;
+    font-size: 20px;
+    margin: 5px;
 }
 
 
@@ -56,9 +68,10 @@
     }
 
     .model-content{
-            background-color: #fefefe;
+            background-color: #dbd4ba;
             border: 1px solid #888;
             width: 80%;
+            margin: 10%
     }
 
     .close{
