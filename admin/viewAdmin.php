@@ -10,18 +10,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Admin</title>
+	<title>View Admin</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" type="text/css" href="css/form.css">
+	<link rel="stylesheet" type="text/css" href="css/style1.css">
 </head>
-<body>
+
+
+<body style="background-image:url(../images/bkImage.jpg);color:white;">
 
 	<?php
-		
-		
-
 
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -50,7 +50,7 @@
 
 		<a href="logout.php"><button class="warnButton"  style="float: right;">Logout</button></a>
 
-        <button class="activeButton" onclick="document.getElementById('idForm').style.display='block'" style="float: right;">Login</button>
+        <button class="activeButton" onclick="document.getElementById('idForm').style.display='block'" style="float: right;box-shadow:5px 5px;">Login</button>
 
         <?php
                if(isset($_SESSION['name'])){
@@ -67,68 +67,70 @@
                }
                 
         ?>
-
         
         <a href="index.php"><button class="warnButton"  style="float: right;background-color:#9db4b7;">Admin Home</button></a>
         <a href="#.php"><button class="warnButton"  style="float: right;background-color:#c60084;">eShopping Home</button></a>
 
+        <br/><br/><br/><br/>
 
-		<form method="post" action="" id="mainForm">
-			<br/><br/>
-			<table cellpadding="20">
-				<caption>Admin Registration</caption>
+			<center>
+				<h3 >eshopping Admin Details </h3>
+				<table cellpadding="20" id="adminViewTable">
+				<br/>
+				<caption></caption>
 				<tr>
-					<td>Username</td>
-					<td><input type="text" name="uName" placeholder="Username" class="inputField"></td>				
+					<td><u><b>Name</b></u></td>
+					<td><u><b>Telephone</b></u></td>		
 				</tr>
+
+				<?php 
+
+					include "../dbConnect/dbConnect.php";
+
+					$conn = dbConnect();
+
+					$sql = "SELECT name, telephone from Admin";
+
+					$result = $conn->query($sql);
+
+					if($result-> num_rows > 0){
+						while ( $row = $result->fetch_assoc()) {
+							echo "<tr><td>";
+							echo $row['name'];
+							echo "</td><td>";
+							echo $row['telephone'];
+							echo "</td></tr>";
+						}
+					}
+
+				?>
 				<tr>
-					<td>Name</td>
-					<td><input type="text" name="adminName" placeholder="Name" class="inputField"></td>				
+					<td></td>
+					<td></td>				
 				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="Password" name="password" placeholder="Password" class="inputField"></td>				
-				</tr>
-				<tr>
-					<td>Telephone</td>
-					<td><input type="text" name="tel" placeholder="Telephone" class="inputField"></td>				
-				</tr>
-				<tr>
-					<td><input type="submit" name="" class="basicButton"></td>
-					<td><input type="reset" name="" class="basicButton"></td>				
-				</tr>
-			</table>
-		</form>
-
-
-		<?php
-
-		// 	include "../dbConnect/dbConnect.php";
-
-		// 	function addAdmin(){
-		// 		$conn = dbConnect();
-
-		// 		$sql = "INSERT INTO admin VALUES ($adminID , $name , $password , $telephone)";
-
-		// 		if($conn -> query($sql) == TRUE){
-		// 			echo document.alert("New Admin Added to the site !");
-		// 		}
-		// 		else{
-					
-		// 		}
-		// 		$conn -> close();
-		// 	}
-
-		// 	function display(){
 				
-		// 	}
+				</table>
 
-		// echo "HIIIII !";
+			</center>
 			
-		?>
+		
 
 
 		<script  src="js/formValidation.js"></script>
+
+
+
+		<style type="text/css">
+				#adminViewTable{
+					background-image: url(../images/bk2.jpeg);
+					color: white;
+					width: 50%;
+					height: 50%;
+					text-align: center;
+					border: 2px;
+				}
+
+		</style>
 
 
 		

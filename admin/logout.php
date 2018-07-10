@@ -4,7 +4,7 @@
 	session_destroy();
 
 	echo "You logged out";
-
+	header("Location:index.php");
 
 ?>
 

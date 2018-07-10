@@ -1,7 +1,7 @@
 <?php
     session_start();
-    $_SESSION["id"] = "UCSC";
-
+   
+    
 ?>
 
 <!DOCTYPE html>
@@ -23,21 +23,37 @@
    
 
 		<div id="center">
-        <button class="warnButton" onclick="document.getElementById('idForm').style.display='block'" style="float: right;">Logout</button>
+
+        <a href="logout.php"><button class="warnButton"  style="float: right;">Logout</button></a>
 
         <button class="activeButton" onclick="document.getElementById('idForm').style.display='block'" style="float: right;">Login</button>
 
-        
+        <?php
+               if(isset($_SESSION['name'])){
+                    if($_SESSION['name'] != null){
+        ?>
+        <label id='helloLabel' >Hello 
 
+        <?php
+             echo $_SESSION['name'] ?>
+                 
+             </label>
+             <?php
+                    }
+               }
+                
+        ?>
+        <a href="index.php"><button class="warnButton"  style="float: right;background-color:#9db4b7;">Admin Home</button></a>
+        <a href="#.php"><button class="warnButton"  style="float: right;background-color:#c60084;">eShopping Home</button></a>
 
 			<table  id="cnLeftTable">
-				<caption> <h2 style="color: #ffe6e6;font-size: 45px;"><br/>Welcome to the admin Page of eShopping</h2></caption>
+				<caption> <h2 style="color: #ffe6e6;font-size: 45px;margin-top: -40px;"><br/>Welcome to the admin Page of eShopping</h2></caption>
                     <tbody>
                         <tr>
                             <td>
                                 <img src="../images/adminDetails.png" class="tableImage">
                                 <br/>
-                                <a href="">Admin <br/>Details</a>
+                                <a href="viewAdmin.php">Admin <br/>Details</a>
                             </td>
                             <td>
                                 <img src="../images/addAdministrator.png" class="tableImage">
@@ -112,7 +128,7 @@
 
 <div id="idForm" class="model">
     <center>
-        <form action="index.php" class="model-content animate">
+        <form action="login.php" class="model-content animate" method="post">
     
         <div class="imgct">
             <span onclick="document.getElementById('idForm').style.display='none'" class="close" title="Close Modal">&times;</span>

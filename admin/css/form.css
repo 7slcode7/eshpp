@@ -3,8 +3,12 @@
 	margin:0;
 }
 
+body{
+    font-family: verdana;
+}
+
 #mainForm{
-	background-image: url("../../images/frombackground.jpg");
+	background-image: url("../../images/formbackground.jpg");
 	background-repeat: no-repeat;
 	color: white;
 	background-size: 700px 500px;
@@ -88,4 +92,16 @@
         background-color: white;
     }
 
+#helloLabel{
+    background-color: #2598fc;
+    padding: 10px 32px;
+    color: black;
+    border:none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 5px;
+    float: right;
+    padding-left: 20%;
+    font-family: verdana;
+}
   
